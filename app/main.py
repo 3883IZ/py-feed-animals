@@ -2,7 +2,12 @@ from typing import List
 
 
 class Animal:
-    def __init__(self, name: str, appetite: int, is_hungry: bool = True) -> None:
+    def __init__(
+        self,
+        name: str,
+        appetite: int,
+        is_hungry: bool = True,
+    ) -> None:
         self.name = name
         self.appetite = appetite
         self.is_hungry = is_hungry
@@ -18,7 +23,11 @@ class Animal:
         return 0
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}({self.name}, appetite={self.appetite}, hungry={self.is_hungry})"
+        return (
+            f"{self.__class__.__name__}("
+            f"{self.name}, appetite={self.appetite}, "
+            f"hungry={self.is_hungry})"
+        )
 
 
 class Cat(Animal):
@@ -42,4 +51,3 @@ def feed_animals(animals: List[Animal]) -> int:
     for animal in animals:
         total_food += animal.feed()
     return total_food
-
